@@ -4,15 +4,16 @@ import { prisma } from "@/lib/prisma"
 
 export async function PATCH(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
+    const { id } = await params;
     const session = await auth()
     if (!session?.user?.email) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
 
     const user = await prisma.user.findUnique({ where: { email: session.user.email } })
     if (!user) return NextResponse.json({ error: "User not found" }, { status: 404 })
 
-    const existing = await prisma.application.findUnique({ where: { id: params.id } })
+    const existing = await prisma.application.findUnique({ where: { id } })
     if (!existing || existing.userId !== user.id)
         return NextResponse.json({ error: "Not found" }, { status: 404 })
 
@@ -33,7 +34,7 @@ export async function PATCH(
     }
 
     const updated = await prisma.application.update({
-        where: { id: params.id },
+        where: { id},
         data: {
             roleTitle: roleTitle ?? existing.roleTitle,
             status: status ?? existing.status,
@@ -49,20 +50,21 @@ export async function PATCH(
 }
 
 export async function DELETE(
-    _req: NextRequest,
-    { params }: { params: { id: string } }
+    req: NextRequest,
+    { params }: { params: Promise<{ id: string }> }
 ) {
+    const { id } = await params;
     const session = await auth()
     if (!session?.user?.email) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
 
     const user = await prisma.user.findUnique({ where: { email: session.user.email } })
     if (!user) return NextResponse.json({ error: "User not found" }, { status: 404 })
 
-    const existing = await prisma.application.findUnique({ where: { id: params.id } })
+    const existing = await prisma.application.findUnique({ where: { id } })
     if (!existing || existing.userId !== user.id)
         return NextResponse.json({ error: "Not found" }, { status: 404 })
 
-    await prisma.application.delete({ where: { id: params.id } })
+    await prisma.application.delete({ where: { id } })
 
     return NextResponse.json({ success: true })
 }
