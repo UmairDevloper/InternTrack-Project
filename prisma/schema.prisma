@@ -1,0 +1,101 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+
+
+model User {
+  id            String        @id @default(uuid())
+  email         String        @unique
+  name          String?
+  password      String?
+  role          String        @default("student")
+  image         String?       // ← add this (Google profile picture)
+  emailVerified DateTime?     // ← add this (required by NextAuth)
+  createdAt     DateTime      @default(now())
+  applications  Application[]
+  accounts      Account[]     // ← add this
+  sessions      Session[]     // ← add this
+}
+
+// Required by NextAuth to store Google account info
+model Account {
+  id                String  @id @default(uuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+// Stores active login sessions
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// For email-based magic link login (optional but required by NextAuth)
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Company {
+  id           String        @id @default(uuid())
+  name         String        @unique
+  website      String?
+  industry     String?
+  createdAt    DateTime      @default(now())
+  applications Application[]
+}
+
+model Application {
+  id          String      @id @default(uuid())
+  userId      String
+  companyId   String?
+  roleTitle   String
+  status      String      @default("applied")
+  appliedDate DateTime    @default(now())
+  deadline    DateTime?
+  jobUrl      String?
+  notes       String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  company     Company?    @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  interviews  Interview[]
+}
+
+model Interview {
+  id            String      @id @default(uuid())
+  applicationId String
+  round         Int         @default(1)
+  interviewType String?
+  scheduledAt   DateTime?
+  notes         String?
+  outcome       String?
+  createdAt     DateTime    @default(now())
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
