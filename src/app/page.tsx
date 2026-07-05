@@ -1,3 +1,4 @@
+import HomeNavbar from "@/components/HomeNavbar"
 import Link from "next/link"
 
 export default function HomePage() {
@@ -127,15 +128,9 @@ export default function HomePage() {
       `}</style>
 
       {/* NAV */}
-      <nav>
-        <Link href="/" className="nav-logo">Intern<span>Track</span></Link>
-        <ul className="nav-links">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-        </ul>
-        <Link href="/dashboard" className="nav-cta">Get started free</Link>
-      </nav>
+
+      <HomeNavbar />
+    
 
       {/* HERO */}
       <section className="hero">
