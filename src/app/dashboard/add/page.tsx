@@ -88,27 +88,27 @@ export default function AddApplicationPage() {
                             <input
                                 type="text"
                                 placeholder="e.g. Google"
-                                className={INPUT_CLASS}
+                                className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`}
                                 value={form.companyName}
                                 onChange={(e) => set("companyName", e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className={LABEL_CLASS}>Company Website</label>
+                            <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Company Website</label>
                             <input
                                 type="url"
                                 placeholder="https://google.com"
-                                className={INPUT_CLASS}
+                                className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`}
                                 value={form.companyWebsite}
                                 onChange={(e) => set("companyWebsite", e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className={LABEL_CLASS}>Industry</label>
+                            <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Industry</label>
                             <input
                                 type="text"
                                 placeholder="e.g. Technology"
-                                className={INPUT_CLASS}
+                                className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`}
                                 value={form.industry}
                                 onChange={(e) => set("industry", e.target.value)}
                             />
@@ -129,15 +129,15 @@ export default function AddApplicationPage() {
                             <input
                                 type="text"
                                 placeholder="e.g. Software Engineer Intern"
-                                className={INPUT_CLASS}
+                                className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`}
                                 value={form.roleTitle}
                                 onChange={(e) => set("roleTitle", e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className={LABEL_CLASS}>Status</label>
+                            <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Status</label>
                             <select
-                                className={INPUT_CLASS}
+                                className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`}
                                 value={form.status}
                                 onChange={(e) => set("status", e.target.value)}
                             >
@@ -147,30 +147,30 @@ export default function AddApplicationPage() {
                             </select>
                         </div>
                         <div>
-                            <label className={LABEL_CLASS}>Job URL</label>
+                            <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Job URL</label>
                             <input
                                 type="url"
                                 placeholder="https://..."
-                                className={INPUT_CLASS}
+                                className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`}
                                 value={form.jobUrl}
                                 onChange={(e) => set("jobUrl", e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className={LABEL_CLASS}>Deadline</label>
+                            <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Deadline</label>
                             <input
                                 type="date"
-                                className={INPUT_CLASS}
+                                className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`}
                                 value={form.deadline}
                                 onChange={(e) => set("deadline", e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className={LABEL_CLASS}>Notes</label>
+                            <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Notes</label>
                             <textarea
                                 rows={4}
                                 placeholder="Anything you want to remember..."
-                                className={INPUT_CLASS}
+                                className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`}
                                 value={form.notes}
                                 onChange={(e) => set("notes", e.target.value)}
                             />
