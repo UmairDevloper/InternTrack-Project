@@ -264,28 +264,29 @@ export default function CompaniesPage({ initialCompanies }: { initialCompanies: 
                             <input
                                 type="text"
                                 placeholder="e.g. Google"
-                                className={INPUT_CLASS}
+
+                                className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`}
                                 value={form.name}
                                 onChange={(e) => set("name", e.target.value)}
                                 autoFocus
                             />
                         </div>
                         <div>
-                            <label className={LABEL_CLASS}>Website</label>
+                            <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Website</label>
                             <input
                                 type="url"
                                 placeholder="https://..."
-                                className={INPUT_CLASS}
+                                className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`}
                                 value={form.website}
                                 onChange={(e) => set("website", e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className={LABEL_CLASS}>Industry</label>
+                            <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Industry</label>
                             <input
                                 type="text"
                                 placeholder="e.g. Technology"
-                                className={INPUT_CLASS}
+                                className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`}
                                 value={form.industry}
                                 onChange={(e) => set("industry", e.target.value)}
                             />

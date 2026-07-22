@@ -245,18 +245,18 @@ export default function ApplicationDetail({ app }: { app: App }) {
                             <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Company</h2>
                             <div className="space-y-3">
                                 <div>
-                                    <label className={LABEL_CLASS}>Company Name</label>
-                                    <input type="text" className={INPUT_CLASS} value={form.companyName}
+                                    <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Company Name</label>
+                                    <input type="text" className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`} value={form.companyName}
                                         onChange={(e) => set("companyName", e.target.value)} />
                                 </div>
                                 <div>
-                                    <label className={LABEL_CLASS}>Company Website</label>
-                                    <input type="url" className={INPUT_CLASS} value={form.companyWebsite}
+                                    <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Company Website</label>
+                                    <input type="url" className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`} value={form.companyWebsite}
                                         onChange={(e) => set("companyWebsite", e.target.value)} />
                                 </div>
                                 <div>
-                                    <label className={LABEL_CLASS}>Industry</label>
-                                    <input type="text" className={INPUT_CLASS} value={form.industry}
+                                    <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Industry</label>
+                                    <input type="text" className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`} value={form.industry}
                                         onChange={(e) => set("industry", e.target.value)} />
                                 </div>
                             </div>
@@ -268,13 +268,13 @@ export default function ApplicationDetail({ app }: { app: App }) {
                             <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Application</h2>
                             <div className="space-y-3">
                                 <div>
-                                    <label className={LABEL_CLASS}>Role Title <span className="text-red-400">*</span></label>
-                                    <input type="text" className={INPUT_CLASS} value={form.roleTitle}
+                                    <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Role Title <span className="text-red-400">*</span></label>
+                                    <input type="text" className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`} value={form.roleTitle}
                                         onChange={(e) => set("roleTitle", e.target.value)} />
                                 </div>
                                 <div>
-                                    <label className={LABEL_CLASS}>Status</label>
-                                    <select className={INPUT_CLASS} value={form.status}
+                                    <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Status</label>
+                                    <select className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`} value={form.status}
                                         onChange={(e) => set("status", e.target.value)}>
                                         {STATUSES.map((s) => (
                                             <option key={s.id} value={s.id}>{s.label}</option>
@@ -282,18 +282,18 @@ export default function ApplicationDetail({ app }: { app: App }) {
                                     </select>
                                 </div>
                                 <div>
-                                    <label className={LABEL_CLASS}>Job URL</label>
-                                    <input type="url" className={INPUT_CLASS} value={form.jobUrl}
+                                    <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Job URL</label>
+                                    <input type="url" className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`} value={form.jobUrl}
                                         onChange={(e) => set("jobUrl", e.target.value)} />
                                 </div>
                                 <div>
-                                    <label className={LABEL_CLASS}>Deadline</label>
-                                    <input type="date" className={INPUT_CLASS} value={form.deadline}
+                                    <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Deadline</label>
+                                    <input type="date" className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`} value={form.deadline}
                                         onChange={(e) => set("deadline", e.target.value)} />
                                 </div>
                                 <div>
-                                    <label className={LABEL_CLASS}>Notes</label>
-                                    <textarea rows={4} className={INPUT_CLASS} value={form.notes}
+                                    <label className={`text-sm font-medium text-gray-700 ${LABEL_CLASS}`}>Notes</label>
+                                    <textarea rows={4} className={`text-sm text-gray-700 placeholder:text-gray-400 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${INPUT_CLASS}`} value={form.notes}
                                         onChange={(e) => set("notes", e.target.value)} />
                                 </div>
                             </div>
